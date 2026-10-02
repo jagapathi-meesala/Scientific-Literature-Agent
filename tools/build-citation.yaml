@@ -3,6 +3,31 @@ description: Tool definition for build-citation.
 version: 1.0.0
 input_schema:
   type: object
+  properties:
+    authors:
+      type: array
+      items:
+        type: string
+        minLength: 1
+      minItems: 1
+    year:
+      type: integer
+      minimum: 1
+    title:
+      type: string
+      minLength: 1
+    venue:
+      type: string
+      minLength: 1
+    doi:
+      type: string
+      minLength: 1
+  required:
+    - authors
+    - year
+    - title
+    - venue
+  additionalProperties: false
 implementation:
   type: script
   path: build_citation.py

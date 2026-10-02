@@ -3,6 +3,23 @@ description: Tool definition for search-literature.
 version: 1.0.0
 input_schema:
   type: object
+  properties:
+    query:
+      type: string
+      minLength: 2
+    year_from:
+      type: integer
+      minimum: 1800
+    year_to:
+      type: integer
+      minimum: 1800
+    limit:
+      type: integer
+      minimum: 1
+      maximum: 100
+  required:
+    - query
+  additionalProperties: false
 implementation:
   type: script
   path: search_literature.py
